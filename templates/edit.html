@@ -1,0 +1,37 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Grupo</th>
+            <th>Promedio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for alumno in alumnos %}
+        <tr>
+            <td>{{ alumno.nombre }}</td>
+            <td>{{ alumno.edad }}</td>
+            <td>{{ alumno.grupo }}</td>
+            <td>{{ alumno.promedio }}</td>
+            <td>
+                <div class="btn-group btn-group-sm">
+                    
+                    <a href="{{ url_for('ver_alumno', id=alumno._id) }}" class="btn btn-info" title="Ver detalles">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    <a href="{{ url_for('editar_alumno', id=alumno._id) }}" class="btn btn-warning" title="Editar">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <form action="{{ url_for('eliminar_alumno', id=alumno._id) }}" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('¿Eliminar este alumno?')" title="Eliminar">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Detalle del Alumno</h2>
+<ul>
+  <li><b>Nombre:</b> {{ alumno.nombre }}</li>
+  <li><b>Edad:</b> {{ alumno.edad }}</li>
+  <li><b>Grupo:</b> {{ alumno.grupo }}</li>
+  <li><b>Promedio:</b> {{ alumno.promedio }}</li>
+  <li><b>Correo:</b> {{ alumno.correo }}</li>
+</ul>
+<a href="{{ url_for('index') }}" class="btn btn-secondary">Regresar</a>
+{% endblock %}
